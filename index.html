@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <title>Dynasties</title>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      function year(y) {
+        const d = new Date(undefined, undefined);
+        d.setFullYear(y);
+        return d;
+      }
+
+      google.charts.load('current', {'packages':['timeline']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var container = document.getElementById('timeline');
+        var chart = new google.visualization.Timeline(container);
+        var dataTable = new google.visualization.DataTable();
+
+        dataTable.addColumn({ type: 'string', id: 'Dynasties' });
+        dataTable.addColumn({ type: 'string', id: 'Dynasty' });
+        dataTable.addColumn({ type: 'date', id: 'Start' });
+        dataTable.addColumn({ type: 'date', id: 'End' });
+        dataTable.addRows([
+          [ '周', '西周', year(-1046), year(-771) ],
+          [ '周', '东周', year(-770), year(-221) ],
+          [ '周', '春秋', year(-770), year(-476) ],
+          [ '周', '战国', year(-475), year(-221) ],
+          [ '秦', '秦', year(-221), year(-207) ],
+          [ '汉', '西汉', year(-202), year(9) ],
+          [ '汉', '东汉', year(25), year(220) ],
+          [ '三国', '魏', year(220), year(265) ],
+          [ '三国', '蜀', year(221), year(263) ],
+          [ '三国', '吴', year(229), year(280) ],
+          [ '晋', '西晋', year(266), year(316) ],
+          [ '晋', '东晋', year(317), year(420) ],
+          [ '南北朝', '北魏', year(386), year(534) ],
+          [ '南北朝', '东魏', year(534), year(550) ],
+          [ '南北朝', '西魏', year(535), year(557) ],
+          [ '南北朝', '北齐', year(550), year(577) ],
+          [ '南北朝', '北周', year(557), year(581) ],
+          [ '隋', '隋', year(581), year(618) ],
+          [ '唐', '唐', year(618), year(907) ],
+          [ '五代十国', '五代十国', year(907), year(960) ],
+          [ '宋', '北宋', year(960), year(1127) ],
+          [ '宋', '南宋', year(1127), year(1276) ],
+          [ '元', '蒙古', year(1206), year(1271) ],
+          [ '元', '元', year(1271), year(1368) ],
+          [ '明', '明', new Date(1368, 1, 23), new Date(1644, 4, 25) ],
+          [ '清', '后金', new Date(1616, 2, 17), new Date(1636, 5, 15) ],
+          [ '清', '清', new Date(1636, 5, 15), new Date(1912, 2, 12) ]]);
+
+        chart.draw(dataTable);
+      }
+    </script>
+  </head>
+  <body style="margin: 0;">
+    <div id="timeline" style="height: 100%;"></div>
+  </body>
+</html>
