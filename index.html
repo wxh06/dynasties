@@ -17,7 +17,7 @@
         dataTable.addColumn({ type: 'date', id: 'Start' });
         dataTable.addColumn({ type: 'date', id: 'End' });
 
-        $.ajax('dynasties.json').done(function (data) {
+        $.ajax('dynasties.json', {cache: false}).done(function (data) {
           for (i = 0; i < data.length; i++) {
             for (j = 2; j < 4; j++) {
               const d = new Date(undefined, data[i][j][1]);
