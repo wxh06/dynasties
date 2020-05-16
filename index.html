@@ -16,23 +16,25 @@
         dataTable.addColumn({ type: 'string', id: 'Dynasty' });
         dataTable.addColumn({ type: 'date', id: 'Start' });
         dataTable.addColumn({ type: 'date', id: 'End' });
-        const data = $.ajax('dynasties.json', {async: false}).responseJSON;
-        for (i = 0; i < data.length; i++) {
-          for (j = 2; j < 4; j++) {
-            const d = new Date(undefined, data[i][j][1]);
-            d.setFullYear(data[i][j][0] || data[i][j]);
-            if (data[i][j][1]) {
-              d.setMonth(data[i][j][1] - 1);
-            }
-            if (data[i][j][2]) {
-              d.setDate(data[i][j][2]);
-            }
-            data[i][j] = d;
-          }
-        }
-        dataTable.addRows(data);
 
-        chart.draw(dataTable);
+        $.ajax('dynasties.json').done(function (data) {
+          for (i = 0; i < data.length; i++) {
+            for (j = 2; j < 4; j++) {
+              const d = new Date(undefined, data[i][j][1]);
+              d.setFullYear(data[i][j][0] || data[i][j]);
+              if (data[i][j][1]) {
+                d.setMonth(data[i][j][1] - 1);
+              }
+              if (data[i][j][2]) {
+                d.setDate(data[i][j][2]);
+              }
+              data[i][j] = d;
+            }
+          }
+          dataTable.addRows(data);
+
+          chart.draw(dataTable);
+        });
       }
     </script>
   </head>
