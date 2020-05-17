@@ -1,7 +1,7 @@
 {
-  "name": "dynasties",
+  "name": "@wxh06/dynasties",
   "version": "0.0.0",
-  "description": "Chinese Dynasties",
+  "description": "Timeline of Chinese Dynasties",
   "scripts": {
     "test": "htmlhint . && eslint --ext html ."
   },
@@ -13,7 +13,7 @@
     "china",
     "chinese-history",
     "history",
-    "dynasties",
+    "dynasty",
     "google-charts",
     "timeline"
   ],
