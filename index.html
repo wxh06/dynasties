@@ -6,19 +6,20 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery" crossorigin="anonymous"></script>
   <script type="text/javascript" src="https://www.gstatic.cn/charts/loader.js"></script>
   <script type="text/javascript">
-    google.charts.load('current', { 'packages': ['timeline'] });
-    google.charts.setOnLoadCallback(function () {
-      var dataTable = new google.visualization.DataTable();
+    window.google.charts.load('current', { packages: ['timeline'] });
+    window.google.charts.setOnLoadCallback(() => {
+      const dataTable = new window.google.visualization.DataTable();
 
       dataTable.addColumn({ type: 'string', id: 'Dynasties' });
       dataTable.addColumn({ type: 'string', id: 'Dynasty' });
       dataTable.addColumn({ type: 'date', id: 'Start' });
       dataTable.addColumn({ type: 'date', id: 'End' });
 
-      $.ajax('dynasties.json', { cache: false }).done(function (data) {
-        for (i = 0; i < data.length; i++) {
-          for (j = 2; j < 4; j++) {
-            const d = new Date(undefined, data[i][j][1]);
+      $.ajax('dynasties.json', { cache: false }).done((json) => {
+        const data = json;
+        for (let i = 0; i < data.length; i += 1) {
+          for (let j = 2; j < 4; j += 1) {
+            const d = new Date(undefined, undefined);
             d.setFullYear(data[i][j][0] || data[i][j]);
             if (data[i][j][1]) {
               d.setMonth(data[i][j][1] - 1);
@@ -31,7 +32,7 @@
         }
         dataTable.addRows(data);
 
-        new google.visualization.Timeline(document.getElementById('timeline')).draw(dataTable);
+        new window.google.visualization.Timeline(document.getElementById('timeline')).draw(dataTable);
       });
     });
   </script>
