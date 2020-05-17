@@ -7,10 +7,7 @@
   <script type="text/javascript" src="https://www.gstatic.cn/charts/loader.js"></script>
   <script type="text/javascript">
     google.charts.load('current', { 'packages': ['timeline'] });
-    google.charts.setOnLoadCallback(drawChart);
-    function drawChart() {
-      var container = document.getElementById('timeline');
-      var chart = new google.visualization.Timeline(container);
+    google.charts.setOnLoadCallback(function () {
       var dataTable = new google.visualization.DataTable();
 
       dataTable.addColumn({ type: 'string', id: 'Dynasties' });
@@ -34,9 +31,9 @@
         }
         dataTable.addRows(data);
 
-        chart.draw(dataTable);
+        new google.visualization.Timeline(document.getElementById('timeline')).draw(dataTable);
       });
-    }
+    });
   </script>
 </head>
 
