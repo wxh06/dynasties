@@ -1,0 +1,33 @@
+{
+  "name": "dynasties",
+  "version": "0.0.0",
+  "description": "Chinese Dynasties",
+  "scripts": {
+    "test": "eslint --ext html ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wxh06/dynasties.git"
+  },
+  "keywords": [
+    "china",
+    "chinese-history",
+    "history",
+    "dynasties",
+    "google-charts",
+    "timeline"
+  ],
+  "author": "汪心禾",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/wxh06/dynasties/issues"
+  },
+  "homepage": "https://github.com/wxh06/dynasties#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^5.16.0 || ^6.8.0",
+    "eslint-config-airbnb-base": "latest",
+    "eslint-plugin-html": "^6.0.2",
+    "eslint-plugin-import": "^2.20.1"
+  }
+}
